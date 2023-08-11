@@ -14,3 +14,26 @@ allprojects {
         plugin("io.gitlab.arturbosch.detekt")
     }
 }
+
+val projectSource = file(projectDir)
+val kotlinFiles = "**/*.kt"
+val resourceFiles = "**/resources/**"
+val buildFiles = "**/build/**"
+
+tasks.register("detektAll", io.gitlab.arturbosch.detekt.Detekt::class) {
+    description = "Custom DETEKT build for all modules"
+    parallel = true
+    ignoreFailures = false
+    autoCorrect = false
+    buildUponDefaultConfig = true
+    setSource(projectSource)
+    include(kotlinFiles)
+    exclude(resourceFiles, buildFiles)
+    reports {
+        sarif.required.set(true)
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+    }
+}
+
