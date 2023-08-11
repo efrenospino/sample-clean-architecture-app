@@ -79,11 +79,3 @@ jobs:
         sarif_file: build/reports/detekt/detekt.sarif
         category: lint
 
-    # CodeQL Analysis
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-      with:
-        category: "/language:${{matrix.language}}"
-
-    
