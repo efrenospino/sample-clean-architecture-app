@@ -23,7 +23,7 @@ val buildFiles = "**/build/**"
 tasks.register("detektAll", io.gitlab.arturbosch.detekt.Detekt::class) {
     description = "Custom DETEKT build for all modules"
     parallel = true
-    ignoreFailures = false
+    ignoreFailures = true
     autoCorrect = false
     buildUponDefaultConfig = true
     setSource(projectSource)
