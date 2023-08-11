@@ -13,4 +13,8 @@ class LocationTrackerService : Service() {
         return null
     }
 
+    fun myEmptyFunction() {
+
+    }
+
 }
