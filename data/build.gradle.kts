@@ -56,13 +56,6 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:2.5.2")
     ksp("androidx.room:room-compiler:2.5.2")
 
-    testImplementation("io.mockk:mockk-android:1.13.5")
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("androidx.test.ext:junit-ktx:1.1.5")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-    testImplementation("org.robolectric:robolectric:4.10.3")
-
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
 }
+
+apply("$rootDir/testing.gradle")
