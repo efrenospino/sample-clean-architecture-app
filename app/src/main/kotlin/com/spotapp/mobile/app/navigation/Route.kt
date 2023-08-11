@@ -17,5 +17,3 @@ object Destinations {
         return auth()
     }
 }
-
-
