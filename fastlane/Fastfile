@@ -19,8 +19,7 @@ platform :android do
 
     desc "Share Debug Build"
     lane :distribute do
-        build_android_app(tasks: "assemble", flavor: "Debug")
-        release = firebase_app_distribution(
+        firebase_app_distribution(
             service_credentials_file: "./fastlane/spot-app-co-ace7b02c9d1a.json",
             app: "1:1089964930381:android:d7a2145c55322688167304",
             groups: "qa",
