@@ -1,14 +1,14 @@
 name: "Build + Push"
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: ["Test"]
+    types: [completed]
+    branches: [main]
 
 jobs:
-  publish:
-    needs: 'test'
+  on-success:
+    name: publish
     runs-on: ubuntu-latest
     steps:
 
