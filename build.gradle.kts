@@ -21,6 +21,7 @@ val resourceFiles = "**/resources/**"
 val buildFiles = "**/build/**"
 
 tasks.register("detektAll", io.gitlab.arturbosch.detekt.Detekt::class) {
+    basePath = projectSource.path
     description = "Custom DETEKT build for all modules"
     parallel = true
     ignoreFailures = true
