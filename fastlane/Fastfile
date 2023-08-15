@@ -1,0 +1,33 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+    desc "Share Debug Build"
+    lane :distribute do
+        build_android_app(tasks: "assemble", flavor: "Debug")
+        release = firebase_app_distribution(
+            service_credentials_file: "./fastlane/spot-app-co-ace7b02c9d1a.json",
+            app: "1:1089964930381:android:d7a2145c55322688167304",
+            groups: "qa",
+            android_artifact_type: "APK",
+            apk_path: "./app/build/outputs/apk/debug/app-debug.apk",
+            debug: true,
+        )
+    end
+
+end

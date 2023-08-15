@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "spot-app-co",
+  "private_key_id": "ace7b02c9d1a3dcc229546479285a13f1c51e8d3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCUBAQVcIMKbbnb\nxVYttPO4ABrbffpSA48IVh7XWSXHEetOY4YpaHXuES4/4Hj0/uFDzEFRJEk0HU/m\nLuCfC4hlYznT41ThSE/ctjIbI/3vn2inync6Oogl0GqiAAfO9N0OASqILeKa3qgZ\n3m2VToCKYOGPer6tPC0wn1fxUvsZAYBpM/4/hcR2sk9WfPBE0WH+hh14zGn2AniS\nx9KMr6iW6RHQH0u9QNimocSMqGEPqn8o+tHud+Is3ZsMRqAH34JBWS2Q1hDztHrl\n25v0VfB0/PYzyf2Z7KOjWCGZV1oCPvNx/iRFS5MWJTE4a4J6c7yriQiW8c1Ik2w/\nbn1Vb01JAgMBAAECggEAAzqBMkyFdzVEgBAyXIXdaQ6Lh20ciCxussJaIt1dbxWr\neca+9ulB5UL3rMoDKWjj1fw/EnuFoz7ebsln+eAhBgEfkkkboVxX7ZsFxcTHtbHW\n8Q4AAsOjE5wTr1vrz65UogkRee3ySul/Zi0NW9vd/ua1FNGbFiFBZRWcr/Vc58Mx\noWXFNasfTdlurqE7EzAtVTcscmQP84bBWjzci5ZyHaG0hDfe6mv7NttR+Fs1TlPE\nKagfNViJoxMXQMNo0FgbvHsTIVqdIQXEcaMDvpWnhk3sns2pboBoEB8h3OcK4tDD\n69ypp0PZMjSnSdrXQkl2eYdG5LIipSWunD9ox+lEwQKBgQDDRmopR6gJQBeG3sLp\nJupiiAl+eCr9dtOxGMc1N+BkQ+tlnWAIeKYHjOW3BrWXOtDkC2DF5WVdkS2gJ0ZX\ngONGeUg4jxlC7lMj4QsLZt9htj69nWiyLXWyvamNl7yaNKKQyH7NtSaqMfbfEAup\ndn9eMAoT/cjoEXb3UNWdZHnYmQKBgQDCC1ihwuMywbXRrepBEJriM6/9MFrNuSs4\nHxRDWdNZcTLVfZ/PQkuMRZqYXvc8hzRQRcFKXL/2qhAW25H0ORkNNC1SaWIaG20T\nbpIs3/MASp3SBXNt9SJm6IMnNO3K15zKaxJc7vf3ehnRIGHMGTnOgDJSWnmwyGD/\n6dkSNNKYMQKBgDen/yQK11rjmJEJNrZrMAyrR0FzkJUzY/yq2kRRy7PoI9SPeUqQ\n0ImAYAy9bc5PpjAJCij9S9nSQhXOe97+zkhM0wfDyWhpMusb/iDezjY0UkeK8Mcv\n68bpBcVkhQ3SiK8JZhLNWdrSaNGE6j3/lyfKO2UdRUDXkXfF40x70bqpAoGBAKQ2\nwe0zZt6/fEVUbxhdGxYvM9KLJ21ONTsrYhSVYf0hhSmTRLk7m3+8L9afF5BLw4Pj\nZG6wC2yOA0u0ydHquD6qV2iU8oaxix+UxXPgml82xlTEdCkr+M8qGkQF0O+GhJPx\nBPtM6OCwnkSSqPD2sCsH5o43LyDikuRAXInB1i8hAoGAMjhHAWLSmWSunlba0vyA\nbphopa0A6QYA1N/P7SqWZj9FGWvlp2B1UtHzB++18p+w2j/w4bInv97cjwrRzPze\njRW+K570PuaUB8kIvaebdw8/M4e4vj8kp3PtiatJu110vbDOYy45DgEM7LF/9g5k\nLIiQ+qjyRLXDG67Lmgyt0lM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-app-distribution@spot-app-co.iam.gserviceaccount.com",
+  "client_id": "107091655338515015757",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-app-distribution%40spot-app-co.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
