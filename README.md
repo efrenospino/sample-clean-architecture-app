@@ -1,6 +1,6 @@
 # spot-app
 
-![Detekt](https://github.com/efrenospino/spot-app/actions/workflows/codeql.yml/badge.svg)
+![Detekt](https://github.com/efrenospino/spot-app/actions/workflows/detekt.yml/badge.svg)
 ![Unit Tests](https://github.com/efrenospino/spot-app/actions/workflows/test.yml/badge.svg)
 [![codecov](https://codecov.io/gh/efrenospino/spot-app/branch/main/graph/badge.svg?token=SNPZSZETRH)](https://codecov.io/gh/efrenospino/spot-app)
 
