@@ -7,7 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  publish:
+    needs: 'test'
     runs-on: ubuntu-latest
     steps:
 
