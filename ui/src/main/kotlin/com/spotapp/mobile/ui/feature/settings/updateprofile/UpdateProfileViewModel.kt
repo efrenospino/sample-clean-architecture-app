@@ -1,10 +1,10 @@
 package com.spotapp.mobile.ui.feature.settings.updateprofile
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.spotapp.mobile.data.models.User
 import com.spotapp.mobile.data.repository.UsersRepository
+import com.spotapp.mobile.domain.usecases.UpdateUserName
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,7 +20,8 @@ data class UiState(
 )
 
 class UpdateProfileViewModel(
-    private val usersRepository: UsersRepository
+    private val usersRepository: UsersRepository,
+    private val updateUserNameUseCase: UpdateUserName,
 ) : ViewModel() {
 
     private val viewModelState: MutableStateFlow<UiState> =
@@ -41,7 +42,7 @@ class UpdateProfileViewModel(
     fun updateUserName(name: String) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                usersRepository.updateUserName(name)
+                updateUserNameUseCase(name)
             }.onSuccess {
                 viewModelState.update {
                     it.copy(

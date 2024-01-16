@@ -2,7 +2,9 @@ package com.spotapp.mobile.ui.feature.auth.signup
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.spotapp.mobile.data.models.User
 import com.spotapp.mobile.data.repository.UsersRepository
+import com.spotapp.mobile.domain.usecases.RegisterUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -10,7 +12,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class SignUpViewModel(
-    private val usersRepository: UsersRepository
+    private val registerUser: RegisterUser
 ) : ViewModel() {
     private val viewModelState: MutableStateFlow<SignUpViewModelState> =
         MutableStateFlow(SignUpViewModelState())
@@ -36,7 +38,7 @@ class SignUpViewModel(
                 )
             }
             runCatching {
-                usersRepository.signUpUserFirebase(email, password)
+                registerUser(email, password)
             }.onSuccess {
                 viewModelState.update {
                     it.copy(
