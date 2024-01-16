@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        appModule.data.firestoreService.subscribeToRealtimeUpdates()
 
         lifecycleScope.launch {
             val startDestination =
