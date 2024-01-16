@@ -1,15 +1,15 @@
 package com.spotapp.mobile.data.repository
 
 import android.util.Log
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.userProfileChangeRequest
 import com.spotapp.mobile.data.models.User
-import com.spotapp.mobile.data.sources.database.users.UserDto
-import com.spotapp.mobile.data.sources.database.users.UserInfoDto
 import com.spotapp.mobile.data.sources.preferences.PreferencesKeys
 import com.spotapp.mobile.data.sources.preferences.UserPreferencesManager
 import com.spotapp.mobile.data.sources.preferences.model.SessionState
+import com.spotapp.mobile.data.sources.remote.firestore.FirestoreService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -20,18 +20,20 @@ class UsersRepository(
     private val auth: FirebaseAuth,
     private val userPreferencesManager: UserPreferencesManager,
     private val coroutineDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val firestoreService: FirestoreService,
 ) {
 
     suspend fun signUpUserFirebase(
         email: String,
         password: String
-    ) {
-        withContext(coroutineDispatcher) {
+    ): AuthResult {
+        return withContext(coroutineDispatcher) {
             runCatching {
                 auth.createUserWithEmailAndPassword(email, password).await()
             }.fold(
                 onSuccess = {
                     Log.d("signUpUserFirebase", "Success!")
+                    it
                 }, onFailure = {
                     throw it
                 }
@@ -109,14 +111,36 @@ class UsersRepository(
         }
     }
 
-    suspend fun updateUserName(name: String) {
-        withContext(Dispatchers.IO) {
+    suspend fun updateUserName(name: String): User {
+        return withContext(Dispatchers.IO) {
             runCatching {
                 userProfileChangeRequest {
                     displayName = name
                 }.let {
                     auth.currentUser?.updateProfile(it)?.await()
                 }
+            }.fold(
+                onSuccess = {
+                    User(
+                        id = auth.currentUser?.uid,
+                        name = name,
+                        email = auth.currentUser?.email,
+                        isAnonymous = auth.currentUser?.isAnonymous ?: false
+                    )
+                },
+                onFailure = {
+                    throw it
+                }
+            )
+        }
+    }
+
+    suspend fun addUserToFirestore(user: User) {
+        withContext(Dispatchers.IO) {
+            runCatching {
+                firestoreService.addUser(user)
+            }.onSuccess {
+                Log.d("addUserToFirestore", "successful!")
             }.onFailure {
                 throw it
             }
