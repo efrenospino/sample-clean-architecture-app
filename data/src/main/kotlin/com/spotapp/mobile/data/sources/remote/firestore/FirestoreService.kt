@@ -44,7 +44,8 @@ class FirestoreService(private val auth: FirebaseAuth) {
 
     suspend fun getUserList(): List<UserObjectType> {
         return runCatching {
-            firestoreDB.collection(usersPath).orderBy("email").get(Source.SERVER).await()
+            firestoreDB.collection(usersPath).orderBy("email")
+                .whereNotEqualTo("email", auth.currentUser!!.email).get(Source.SERVER).await()
                 .toObjects(UserObjectType::class.java)
 
         }.fold(onSuccess = {
