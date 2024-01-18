@@ -2,4 +2,5 @@
 <resources>
     <color name="mainColor">#F23A44</color>
     <color name="MidnightBlue">#16212f</color>
+    <color name="snowWhite">#fefefe</color>
 </resources>

@@ -29,4 +29,6 @@
     <string name="current_password">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="anonymous_warning">You are not allowed to perform this action. You logged in as Guest</string>
+    <string name="add_question_summary">You\'re adding a new question. Remember, this new question is not going to be available for you.</string>
+    <string name="question_title">Question</string>
 </resources>
