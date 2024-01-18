@@ -8,6 +8,7 @@ data class Question(
 )
 
 data class Option(
+    val id: Int = 0,
     val optionText: String = "",
     val isCorrect: Boolean = false
 )

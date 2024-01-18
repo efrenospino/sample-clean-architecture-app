@@ -19,7 +19,7 @@ class FirestoreService(private val auth: FirebaseAuth) {
         mutableListOf()
 
     private val usersPath = "test/global/users"
-    private val questionsPath = "game/questions"
+    private val questionsPath = "test/global/questions"
 
     fun subscribeToRealtimeUpdates() {
         val collectionPaths = mutableListOf(
@@ -82,23 +82,24 @@ class FirestoreService(private val auth: FirebaseAuth) {
         }
     }
 
-    suspend fun getQuestionsFromFirestore(): List<Question> {
+    suspend fun getQuestionsList(): List<Question> {
         return runCatching {
             firestoreDB.collection(questionsPath)
                 .get().await().toObjects(Question::class.java)
         }.fold(
             onSuccess = {
+                Log.d("FirestoreService", "getQuestionsList success, list: ${it.size}")
                 it
             },
             onFailure = {
+                Log.d("FirestoreService", "getQuestionsList failure, error: ${it.message}")
                 throw it
             }
         )
 
     }
 
-    private // Helper functions to convert between Question and Map
-    fun mapQuestionToMap(question: Question): Map<String, Any> {
+    private fun mapQuestionToMap(question: Question): Map<String, Any> {
         return mapOf(
             "questionText" to question.questionText,
             "options" to question.options.map { option ->
