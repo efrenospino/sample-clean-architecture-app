@@ -9,6 +9,7 @@ import com.spotapp.mobile.data.sources.database.AppDatabase
 import com.spotapp.mobile.data.sources.preferences.UserPreferencesManager
 import com.spotapp.mobile.data.sources.preferences.impl.UserPreferencesManagerImpl
 import com.spotapp.mobile.data.sources.remote.RestClient
+import com.spotapp.mobile.data.sources.remote.firebasedatabase.FDatabaseService
 import com.spotapp.mobile.data.sources.remote.firestore.FirestoreService
 
 class DataModule(private val systemModule: SystemModule) {
@@ -23,6 +24,8 @@ class DataModule(private val systemModule: SystemModule) {
 
     val firestoreService: FirestoreService = FirestoreService(firebaseAuth)
 
+    val firebaseDBService: FDatabaseService = FDatabaseService(firebaseAuth)
+
     private val userPreferencesManager: UserPreferencesManager
         get() = UserPreferencesManagerImpl.getInstance(systemModule.applicationContext)
 
@@ -34,6 +37,6 @@ class DataModule(private val systemModule: SystemModule) {
         )
 
     val gameRepository: GameRepository
-        get() = GameRepository(firestoreService)
+        get() = GameRepository(firestoreService, firebaseDBService, firebaseAuth)
 
 }
