@@ -143,7 +143,7 @@ fun NavGraph(
                             HomeViewModel(
                                 gameRepository = appModule.data.gameRepository
                             )
-                        }
+                        }, paddingValues = paddingValues
                     )
                 }
 
