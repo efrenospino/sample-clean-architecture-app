@@ -30,6 +30,7 @@ dependencies {
     api(libs.androidx.room.ktx)
     api(libs.firebase.auth)
     api(libs.firebase.firestore)
+    api(libs.firebase.database)
     api(libs.androidx.datastore)
 
     annotationProcessor(libs.androidx.room.compiler)

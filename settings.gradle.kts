@@ -26,6 +26,7 @@ dependencyResolutionManagement {
             version("firebaseCrashlytics", "18.4.0")
             version("firebaseAuth", "22.3.0")
             version("firebaseFirestore", "24.10.0")
+            version("firebaseDatabase", "20.3.0")
             version("dataStore", "1.0.0")
             version("junitKtx", "1.1.5")
             version("junit", "4.13.2")
@@ -121,6 +122,11 @@ dependencyResolutionManagement {
                 "com.google.firebase",
                 "firebase-firestore"
             ).versionRef("firebaseFirestore")
+            library(
+                "firebase-database",
+                "com.google.firebase",
+                "firebase-database"
+            ).versionRef("firebaseDatabase")
             library(
                 "androidx-datastore",
                 "androidx.datastore",
